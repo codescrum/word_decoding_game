@@ -50,12 +50,17 @@ class StringEncoderGameServer < Sinatra::Base
       word = new_word
       session[:challenge][:original_word] = word
       session[:challenge][:encoded_word] = encoded_word_for_challenge(session[:current_challenge], word)
+      session[:challenge][:ends_at] = (Time.now + 500.seconds)
       session[:challenge][:encoded_word]
     else
       word = new_word
       create_session(ip, word)
       word
     end
+  end
+
+  get '/debug' do
+    binding.pry
   end
 
   get '/answer' do
@@ -70,7 +75,7 @@ class StringEncoderGameServer < Sinatra::Base
 
       challenge[:original_word]
 
-      if challenge[:ends_at] > Time.now
+      if Time.now <= challenge[:ends_at]
         return "Your time has ended, please request a new word at /word"
       else
         if answer == challenge[:original_word]
@@ -92,7 +97,7 @@ class StringEncoderGameServer < Sinatra::Base
   end
 
   def create_session(ip, original_word)
-    sessions[ip] = {current_challenge: 1, challenge: { original_word: original_word, encoded_word: encoder.noop(original_word), ends_at: (Time.now + 500.seconds)}}
+    sessions[ip] = {current_challenge: 1, challenge: { original_word: original_word, encoded_word: encoder.noop(original_word), ends_at: (Time.now + 500.seconds)} }
   end
 
   def get_session(ip)
