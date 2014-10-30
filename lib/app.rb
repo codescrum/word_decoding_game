@@ -22,6 +22,9 @@ class StringEncoderGameServer < Sinatra::Base
     also_reload File.expand_path('../random_generator.rb', __FILE__)
   end
 
+  # Admit connections from anyone
+  set :bind, '0.0.0.0'
+
   def initialize
     # initialize an encoder
     @encoder = Encoder.new
