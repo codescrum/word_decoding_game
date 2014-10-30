@@ -60,7 +60,7 @@ class StringEncoderGameServer < Sinatra::Base
     session = get_session(ip)
 
     if session
-      encoded_word = params[:encoded_word].strip
+      # encoded_word = params[:encoded_word].strip
       answer = params[:answer].strip
 
       challenge = session[:challenge]
@@ -70,7 +70,7 @@ class StringEncoderGameServer < Sinatra::Base
       if challenge[:ends_at] > Time.now
         return "Your time has ended, please request a new word at /word"
       else
-        if encoded_word == challenge[:encoded_word] && answer == challenge[:original_word]
+        if answer == challenge[:original_word]
           # increment challenge
           session[:current_challenge] = session[:current_challenge] + 1
           return "OK! - You have succesfully completed this challenge, please ask for another word to see the next challenge"
