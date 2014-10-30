@@ -76,7 +76,7 @@ class StringEncoderGameServer < Sinatra::Base
       challenge[:original_word]
 
       if Time.now > challenge[:ends_at]
-        return "Your time has ended, please request a new word at /word"
+        return "TIMEOUT! - You have run out of time, please ask for a new word!"
       else
         if answer == challenge[:original_word]
           # increment challenge
