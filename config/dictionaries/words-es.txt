@@ -156,7 +156,6 @@ lugar
 mundo
 amigo
 espera
-mierda
 han
 tus
 sabe
@@ -434,7 +433,6 @@ venga
 creer
 realidad
 saben
-puta
 deberias
 pregunta
 fui
@@ -736,11 +734,9 @@ grupo
 entendido
 senorita
 musica
-perra
 conoce
 empezar
 siente
-estupido
 diferente
 traje
 modo

@@ -37,9 +37,9 @@ Please note:
 
 2. To submit a decoded word response to the server
 
-   In order to check your decoded word you must submit a POST request with your answer to
+   In order to check your decoded word you must submit a GET request with your answer to
 
-       POST /:word?answer=<your-decoded-word>
+       GET /answer/?answer=<your-decoded-word>
 
    Where the :word part in the url is the original (encoded) word sent to you and <your-decoded-word> is...well, your answer/guess.
 
