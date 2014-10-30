@@ -50,7 +50,7 @@ class StringEncoderGameServer < Sinatra::Base
       word = new_word
       session[:challenge][:original_word] = word
       session[:challenge][:encoded_word] = encoded_word_for_challenge(session[:current_challenge], word)
-      session[:challenge][:ends_at] = (Time.now + 500.seconds)
+      session[:challenge][:ends_at] = (Time.now + 10.seconds)
       session[:challenge][:encoded_word]
     else
       word = new_word
