@@ -8,6 +8,8 @@ require 'active_support/all'
 
 class StringEncoderGameServer < Sinatra::Base
 
+  ANSWER_TIMEOUT = 5.seconds
+
   attr_accessor :requests
   attr_accessor :encoder
 
@@ -50,7 +52,7 @@ class StringEncoderGameServer < Sinatra::Base
       word = new_word
       session[:challenge][:original_word] = word
       session[:challenge][:encoded_word] = encoded_word_for_challenge(session[:current_challenge], word)
-      session[:challenge][:ends_at] = (Time.now + 10.seconds)
+      session[:challenge][:ends_at] = (Time.now + ANSWER_TIMEOUT)
       session[:challenge][:encoded_word]
     else
       word = new_word
@@ -97,7 +99,7 @@ class StringEncoderGameServer < Sinatra::Base
   end
 
   def create_session(ip, original_word)
-    sessions[ip] = {current_challenge: 1, challenge: { original_word: original_word, encoded_word: encoder.noop(original_word), ends_at: (Time.now + 500.seconds)} }
+    sessions[ip] = {current_challenge: 1, challenge: { original_word: original_word, encoded_word: encoder.noop(original_word), ends_at: (Time.now + ANSWER_TIMEOUT)} }
   end
 
   def get_session(ip)

@@ -24,7 +24,7 @@ Please note:
 
 3. Sometimes the encoded word may leave you in a position where you have multiple 'candidates' for the decoded word. You can try sending multiple words to the server, you have multiple attempts to guess the correct word.
 
-4. Do not try to cheat the system by hand, the server only waits 2 seconds for you to guess the correct word each time :P. After 2 seconds, you will have to request a new word.
+4. Do not try to cheat the system by hand, the server only waits 2 seconds for you to guess the correct word each time :P. After 5 seconds, you will have to request a new word.
 
 
 ##Technical Gameplay
@@ -51,14 +51,11 @@ Please note:
 
 4. When you guess the word correctly, this will tell you what the next challenge url is. When you have submited a correct answer, the server will respond like this:
 
-        OK - You have submitted the correct answer to this challenge, your next challenge awaits you at:
-        /3ef082a/word
+        OK! - You have succesfully completed this challenge, please ask for another word to see the next challenge
 
-   And it will also tell you any clues for the next challenge.
+   When you complete a challenge you may ask for the next word by issuing a GET /word request
 
-   You will be told to ask for a word to the server to a different url, so you now have to ask the server for the word submitting a GET request like:
-
-       GET /3ef082a/word
+       GET /word
 
    And again, try to decipher and reverse-engineer the algorithm.
 
