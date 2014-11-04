@@ -1,4 +1,4 @@
-#String Encoder Game Server
+#String Encoder Game Server (by CODESCRUM)
 
 This is simple game for learning ruby!
 This is the server part of a game that consists of decoding words.
