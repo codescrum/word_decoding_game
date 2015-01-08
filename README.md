@@ -1,4 +1,4 @@
-#String Encoder Game Server (by CODESCRUM)
+#String Encoder Game Server (by Codescrum)
 
 This is simple game for learning ruby!
 This is the server part of a game that consists of decoding words.
@@ -24,7 +24,7 @@ Please note:
 
 3. Sometimes the encoded word may leave you in a position where you have multiple 'candidates' for the decoded word. You can try sending multiple words to the server, you have multiple attempts to guess the correct word.
 
-4. Do not try to cheat the system by hand, the server only waits 2 seconds for you to guess the correct word each time :P. After 5 seconds, you will have to request a new word.
+4. Do not try to cheat the system by hand, the server only waits 2 seconds for you to guess the correct word each time :P. After the time has elapsed, you will have to request a new word.
 
 
 ##Technical Gameplay
